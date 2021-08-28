@@ -19,7 +19,7 @@ export const renderField = (elements, field) => {
   elements.puzzle.container.replaceChildren(table);
 };
 
-const renderChangedItems = (elements, path, value) => {
+const renderChangedItem = (elements, path, value) => {
   const [rowIndex, dataIndex] = path
     .replace('puzzle.field.', '')
     .split('.')
@@ -36,7 +36,7 @@ const initView = (unwatchedState, i18n, elements) => onChange(unwatchedState, (p
   }
 
   if (path.startsWith('puzzle.field.')) {
-    renderChangedItems(elements, path, value);
+    renderChangedItem(elements, path, value);
   }
 });
 
