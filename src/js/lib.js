@@ -20,7 +20,7 @@ const getNewField = () => {
   let shuffledNums;
   do {
     shuffledNums = _.shuffle(numbers);
-  } while (!isSolved(numbers));
+  } while (!isSolved(shuffledNums));
   shuffledNums.push(null);
 
   return _.chunk(shuffledNums, 4);
