@@ -2,7 +2,6 @@ import i18next from 'i18next';
 import resources from './locale/index.js';
 import initView from './view.js';
 import app from './app.js';
-import getNewField from './lib';
 
 const init = async () => {
   const defaultLanguage = 'en';
@@ -14,7 +13,7 @@ const init = async () => {
   });
   const unwatchedState = {
     puzzle: {
-      field: getNewField(),
+      field: [],
       winCombination: [
         [1, 2, 3, 4],
         [5, 6, 7, 8],

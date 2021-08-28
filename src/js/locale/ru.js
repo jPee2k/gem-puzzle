@@ -1,5 +1,9 @@
 export default {
   translation: {
-    key: 'значение',
+    puzzle: {
+      buttons: {
+        reset: 'Сбросить',
+      },
+    },
   },
 };

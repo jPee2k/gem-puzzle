@@ -1,4 +1,6 @@
-import { renderField } from './view.js';
+import _ from 'lodash';
+import { renderElements } from './view.js';
+import getNewField from './lib.js';
 
 const findNull = (field) => [...field]
   .reduce((acc, row, i, srcArray) => {
@@ -35,16 +37,31 @@ const swapElements = (field, target) => {
     });
 };
 
-const app = (state, i18n, elements) => {
-  renderField(elements, state.puzzle.field);
+const isWin = (state) => {
+  const winCombination = state.puzzle.winCombination.flat();
+  const currentField = state.puzzle.field.flat();
+  return _.isEqual(winCombination, currentField);
+};
 
-  const items = elements.puzzle.container.querySelectorAll('td');
-  items.forEach((item) => {
-    item.addEventListener('click', (evt) => {
-      evt.preventDefault();
-      swapElements(state.puzzle.field, evt.target);
-    });
-  });
+const app = (state, i18n, elements) => {
+  const handler = (evt) => {
+    evt.preventDefault();
+    swapElements(state.puzzle.field, evt.target);
+
+    if (isWin(state)) {
+      state.puzzle.field = [
+        [null, null, null, null],
+        ['Y', 'o', 'u', null],
+        [null, 'W', 'i', 'n'],
+        [null, null, null, null],
+      ];
+    }
+  };
+
+  state.puzzle.field = getNewField();
+  elements.puzzle.container.addEventListener('click', handler);
+
+  renderElements(state, elements, i18n);
 };
 
 export default app;
