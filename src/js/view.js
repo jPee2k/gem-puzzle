@@ -1,7 +1,7 @@
 import onChange from 'on-change';
 
 export const renderField = (elements, field) => {
-  const {container} = elements.puzzle;
+  const { container } = elements.puzzle;
   const infoSection = container.querySelector('.puzzle__info');
   const oldTable = container.querySelector('.puzzle__table');
   const table = document.createElement('table');
@@ -34,7 +34,7 @@ export const renderField = (elements, field) => {
 export const renderElements = (state, elements, i18n) => {
   const counter = document.createElement('p');
   counter.classList.add('puzzle__counter');
-  counter.textContent = i18n.t('puzzle.infoSection.counter.count', {count: state.puzzle.data.steps});
+  counter.textContent = i18n.t('puzzle.infoSection.counter.count', { count: state.puzzle.data.steps });
 
   const record = document.createElement('p');
   record.classList.add('puzzle__record');
@@ -42,7 +42,7 @@ export const renderElements = (state, elements, i18n) => {
 
   const timer = document.createElement('p');
   timer.classList.add('puzzle__timer');
-  timer.textContent = i18n.t('puzzle.infoSection.timer', {count: state.puzzle.data.time});
+  timer.textContent = i18n.t('puzzle.infoSection.timer', { count: state.puzzle.data.time });
 
   const bestTime = document.createElement('p');
   bestTime.classList.add('puzzle__best-time');
@@ -96,7 +96,7 @@ const renderChangedItem = (elements, path, value) => {
 };
 
 const stateHandler = (state, i18n, elements, processState) => {
-  const {container} = elements.puzzle;
+  const { container } = elements.puzzle;
   const startBtn = container.querySelector('button[data-role="start"]');
   const restartBtn = container.querySelector('button[data-role="restart"]');
   const pauseBtn = container.querySelector('button[data-role="pause"]');
@@ -117,12 +117,12 @@ const stateHandler = (state, i18n, elements, processState) => {
       pauseBtn.setAttribute('hidden', 'true');
       break;
     default:
-      throw new Error(i18n.t('puzzle.errors.processState', {processState}));
+      throw new Error(i18n.t('puzzle.errors.processState', { processState }));
   }
 };
 
 const initView = (unwatchedState, i18n, elements) => {
-  const {container} = elements.puzzle;
+  const { container } = elements.puzzle;
 
   const state = onChange(unwatchedState, (path, value) => {
     switch (path) {
@@ -134,7 +134,7 @@ const initView = (unwatchedState, i18n, elements) => {
         break;
       case 'puzzle.data.steps':
         container.querySelector('.puzzle__counter')
-          .textContent = i18n.t('puzzle.infoSection.counter.count', {count: state.puzzle.data.steps});
+          .textContent = i18n.t('puzzle.infoSection.counter.count', { count: state.puzzle.data.steps });
         break;
       case 'puzzle.data.record':
         container.querySelector('.puzzle__record')
@@ -142,7 +142,7 @@ const initView = (unwatchedState, i18n, elements) => {
         break;
       case 'puzzle.data.time':
         container.querySelector('.puzzle__timer')
-          .textContent = i18n.t('puzzle.infoSection.timer', {count: state.puzzle.data.time});
+          .textContent = i18n.t('puzzle.infoSection.timer', { count: state.puzzle.data.time });
         break;
       case 'puzzle.data.bestTime':
         container.querySelector('.puzzle__best-time')
