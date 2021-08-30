@@ -63,6 +63,7 @@ const app = (state, i18n, elements) => {
       data.steps += 1;
     }
     if (isWin(state)) {
+      state.puzzle.processState = 'win';
       state.puzzle.field = [
         [null, null, null, null],
         ['Y', 'o', 'u', null],

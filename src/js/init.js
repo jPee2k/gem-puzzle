@@ -8,14 +8,14 @@ const init = async () => {
   const i18n = i18next.createInstance();
   await i18n.init({
     lng: defaultLanguage,
-    debug: true,
+    debug: false,
     resources,
   });
   const unwatchedState = {
-    debug: true,
+    debug: false,
     puzzle: {
       timerId: false,
-      processState: 'pause', // pause, play
+      processState: 'pause', // pause, play, win
       field: [],
       winCombination: [
         [1, 2, 3, 4],

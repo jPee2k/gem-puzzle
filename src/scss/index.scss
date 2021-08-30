@@ -1,7 +1,8 @@
-@import "normalize";
-@import "styles";
-
 @import "variables";
 @import "mixins";
 
-@import "./puzzle/table";
+@import "normalize";
+@import "styles";
+
+@import "./puzzle/index";
+@import "./puzzle/mobile";
