@@ -12,7 +12,10 @@ const init = async () => {
     resources,
   });
   const unwatchedState = {
+    debug: true,
     puzzle: {
+      timerId: false,
+      processState: 'pause', // pause, play
       field: [],
       winCombination: [
         [1, 2, 3, 4],
@@ -21,8 +24,9 @@ const init = async () => {
         [13, 14, 15, null],
       ],
       isWin: false,
-      steps: 0,
-      record: 0,
+      data: {
+        steps: 0, record: 0, time: 0, bestTime: 0,
+      },
     },
   };
 
