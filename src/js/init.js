@@ -1,5 +1,6 @@
 import i18next from 'i18next';
 import resources from './locale/index.js';
+import unwatchedState from './state.js';
 import initView from './view.js';
 import app from './app.js';
 
@@ -11,24 +12,6 @@ const init = async () => {
     debug: false,
     resources,
   });
-  const unwatchedState = {
-    debug: false,
-    puzzle: {
-      timerId: false,
-      processState: 'pause', // pause, play, win
-      field: [],
-      winCombination: [
-        [1, 2, 3, 4],
-        [5, 6, 7, 8],
-        [9, 10, 11, 12],
-        [13, 14, 15, null],
-      ],
-      isWin: false,
-      data: {
-        steps: 0, record: 0, time: 0, bestTime: 0,
-      },
-    },
-  };
 
   const elements = {
     puzzle: {

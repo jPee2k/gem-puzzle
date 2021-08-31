@@ -1,11 +1,18 @@
 import onChange from 'on-change';
 
+const appendTable = (newTable, currentTable, infoSection) => {
+  if (currentTable) {
+    currentTable.replaceWith(newTable);
+  } else {
+    infoSection.after(newTable);
+  }
+};
+
 export const renderField = (elements, field) => {
   const { container } = elements.puzzle;
   const infoSection = container.querySelector('.puzzle__info');
-  const oldTable = container.querySelector('.puzzle__table');
-  const table = document.createElement('table');
-  table.classList.add('puzzle__table');
+  const currentTable = container.querySelector('.puzzle__table');
+  const newTable = document.createElement('table');
   const tbody = document.createElement('tbody');
   const children = field.map((items) => {
     const row = items.map((item) => {
@@ -21,14 +28,11 @@ export const renderField = (elements, field) => {
     tr.append(...row);
     return tr;
   });
+  newTable.classList.add('puzzle__table');
+  newTable.append(tbody);
   tbody.append(...children);
-  table.append(tbody);
 
-  if (oldTable) {
-    oldTable.replaceWith(table);
-  } else {
-    infoSection.after(table);
-  }
+  appendTable(newTable, currentTable, infoSection);
 };
 
 export const renderElements = (state, elements, i18n) => {
@@ -152,7 +156,6 @@ const initView = (unwatchedState, i18n, elements) => {
         if (path.startsWith('puzzle.field.')) {
           renderChangedItem(elements, path, value);
         }
-
         if (state.debug) {
           console.info(path);
         }
