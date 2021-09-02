@@ -12,7 +12,7 @@
   padding: 16px;
   max-width: 320px;
 
-  border: dotted 1px gray;
+  background-color: $puzzle-background;
   border-radius: 20px;
 }
 
@@ -45,7 +45,7 @@
 
   &:not(.puzzle__item--empty) {
     cursor: pointer;
-    background-color: $classic-green;
+    background-color: $items-color;
   }
 }
 
@@ -60,7 +60,7 @@
   grid-template-columns: 1fr 1fr;
   gap: 5px;
 
-  padding-bottom: 16px;
+  padding: 16px;
 
   font-size: 24px;
   font-style: italic;
@@ -76,7 +76,7 @@
   margin: 0;
   padding: 6px;
 
-  background-color: $classic-green;
+  background-color: $items-color;
   border-radius: 8px;
 }
 
@@ -97,7 +97,7 @@
   display: flex;
   justify-content: space-around;
 
-  padding: 18px;
+  padding: 16px;
 }
 
 .puzzle__nav button {
@@ -114,9 +114,9 @@
   border-radius: 8px;
 
   cursor: pointer;
-  background-color: $classic-green;
+  background-color: $items-color;
 
   &:hover {
-    background-color: $dark-green;
+    background-color: $hover-color;
   }
 }

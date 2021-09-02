@@ -34,15 +34,15 @@ img {
 
 @keyframes blinking {
   0% {
-    background-color: $dark-green;
+    background-color: $hover-color;
   }
   25% {
-    background-color: $dark-green;
+    background-color: $hover-color;
   }
   75% {
-    background-color: $classic-green;
+    background-color: $items-color;
   }
   100% {
-    background-color: $classic-green;
+    background-color: $items-color;
   }
 }
