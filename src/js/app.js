@@ -1,5 +1,7 @@
 import { renderElements } from './view.js';
-import { getNewField, swapElements, isWin } from './lib.js';
+import {
+  getNewField, swapElements, isWin, pushRecord,
+} from './lib.js';
 
 const onItemClick = (state, container, evt) => {
   evt.preventDefault();
@@ -15,12 +17,9 @@ const onItemClick = (state, container, evt) => {
       [null, 'W', 'i', 'n'],
       [null, null, null, null],
     ];
-    if (data.steps < data.record || data.record === 0) {
-      data.record = data.steps;
-    }
-    if (data.time < data.bestTime || data.bestTime === 0) {
-      data.bestTime = data.time;
-    }
+    pushRecord(state, 'puzzle.data.record', data.steps, data.record);
+    pushRecord(state, 'puzzle.data.bestTime', data.time, data.bestTime);
+
     clearTimeout(state.puzzle.timerId);
   }
 };

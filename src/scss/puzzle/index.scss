@@ -56,39 +56,40 @@
 // --------- INFO ------------ //
 
 .puzzle__info {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 5px;
-
   padding: 16px;
-
-  font-size: 24px;
+  padding-top: 0;
+  border-spacing: 2px;
+  font-size: 20px;
   font-style: italic;
   color: white;
 }
 
-.puzzle__counter,
-.puzzle__record,
-.puzzle__timer,
-.puzzle__best-time, {
-  position: relative;
 
-  margin: 0;
-  padding: 6px;
-
-  background-color: $items-color;
-  border-radius: 8px;
+.puzzle__info th {
+  padding: 4px;
+  background-color: $hover-color;
 }
 
-.puzzle__info span {
-  position: absolute;
-  bottom: 25px;
-  left: 18px;
+.puzzle__info th:first-child {
+  border-radius: 8px 0 0 0;
+}
 
-  color: white;
-  -webkit-text-stroke: 1px black;
-  font-weight: 700;
-  font-size: 28px;
+.puzzle__info th:last-child {
+  border-radius: 0 8px 0 0;
+}
+
+.puzzle__info td {
+  padding: 4px;
+  padding-left: 12px;
+  background-color: $hover-color;
+}
+
+.puzzle__info tr:last-child td:first-child {
+  border-bottom-left-radius: 8px;
+}
+
+.puzzle__info tr:last-child td:last-child {
+  border-bottom-right-radius: 8px;
 }
 
 // --------- NAV ------------ //
@@ -98,6 +99,7 @@
   justify-content: space-around;
 
   padding: 16px;
+  padding-bottom: 0;
 }
 
 .puzzle__nav button {
@@ -114,9 +116,9 @@
   border-radius: 8px;
 
   cursor: pointer;
-  background-color: $items-color;
+  background-color: $hover-color;
 
   &:hover {
-    background-color: $hover-color;
+    background-color: $items-color;
   }
 }

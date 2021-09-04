@@ -18,6 +18,12 @@ export const isWin = (state) => {
   return _.isEqual(winCombination, currentField);
 };
 
+export const pushRecord = (state, path, current, record) => {
+  if (current < record || record === 0) {
+    _.set(state, path, current);
+  }
+};
+
 export const getNewField = () => {
   const numbers = Array.from(Array(15), (v, i) => i + 1);
 

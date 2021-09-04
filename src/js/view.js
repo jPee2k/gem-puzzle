@@ -35,27 +35,31 @@ export const renderField = (elements, field) => {
   appendTable(newTable, currentTable, infoSection);
 };
 
-export const renderElements = (state, elements, i18n) => {
-  const counter = document.createElement('p');
-  counter.classList.add('puzzle__counter');
-  counter.textContent = i18n.t('puzzle.infoSection.counter.count', { count: state.puzzle.data.steps });
+const createTable = (state, i18n) => {
+  const table = document.createElement('table');
 
-  const record = document.createElement('p');
-  record.classList.add('puzzle__record');
-  record.innerHTML = `<span>${i18n.t('puzzle.infoSection.record')}</span>${state.puzzle.data.record}`;
+  table.classList.add('puzzle__info');
+  table.innerHTML = (
+    `<thead>
+        <th>${i18n.t('puzzle.infoSection.currentDataTitle')}</th>
+        <th>${i18n.t('puzzle.infoSection.recordsTitle')}</th>
+    </thead>
+    <tbody>
+      <tr>
+        <td class="puzzle__counter">${i18n.t('puzzle.infoSection.counter.count', { count: state.puzzle.data.steps })}</td>
+        <td class="puzzle__record">${state.puzzle.data.record}</td>
+      </tr>
+      <tr>
+        <td class="puzzle__timer">${i18n.t('puzzle.infoSection.timer', { count: state.puzzle.data.time })}</td>
+        <td class="puzzle__best-time">${state.puzzle.data.bestTime}</td>
+      </tr>
+    </tbody>`
+  );
 
-  const timer = document.createElement('p');
-  timer.classList.add('puzzle__timer');
-  timer.textContent = i18n.t('puzzle.infoSection.timer', { count: state.puzzle.data.time });
+  return table;
+};
 
-  const bestTime = document.createElement('p');
-  bestTime.classList.add('puzzle__best-time');
-  bestTime.innerHTML = `<span>${i18n.t('puzzle.infoSection.bestTime')}</span>${state.puzzle.data.bestTime}`;
-
-  const textContainer = document.createElement('div');
-  textContainer.classList.add('puzzle__info');
-  textContainer.append(counter, record, timer, bestTime);
-
+const createNav = (state, i18n) => {
   const startBtn = document.createElement('button');
   startBtn.setAttribute('type', 'button');
   startBtn.dataset.role = 'start';
@@ -77,9 +81,16 @@ export const renderElements = (state, elements, i18n) => {
   buttonsContainer.classList.add('puzzle__nav');
   buttonsContainer.append(startBtn, restartBtn, pauseBtn);
 
+  return buttonsContainer;
+};
+
+export const renderElements = (state, elements, i18n) => {
+  const table = createTable(state, i18n);
+  const nav = createNav(state, i18n);
+
   const puzzleWrapper = document.createElement('div');
   puzzleWrapper.classList.add('puzzle__wrapper');
-  puzzleWrapper.append(textContainer, buttonsContainer);
+  puzzleWrapper.append(table, nav);
 
   elements.puzzle.container.append(puzzleWrapper);
 };
@@ -138,19 +149,19 @@ const initView = (unwatchedState, i18n, elements) => {
         break;
       case 'puzzle.data.steps':
         container.querySelector('.puzzle__counter')
-          .textContent = i18n.t('puzzle.infoSection.counter.count', { count: state.puzzle.data.steps });
-        break;
-      case 'puzzle.data.record':
-        container.querySelector('.puzzle__record')
-          .innerHTML = `<span>${i18n.t('puzzle.infoSection.record')}</span>${state.puzzle.data.record}`;
+          .innerHTML = `${i18n.t('puzzle.infoSection.counter.count', { count: state.puzzle.data.steps })}`;
         break;
       case 'puzzle.data.time':
         container.querySelector('.puzzle__timer')
-          .textContent = i18n.t('puzzle.infoSection.timer', { count: state.puzzle.data.time });
+          .innerHTML = `${i18n.t('puzzle.infoSection.timer', { count: state.puzzle.data.time })}`;
+        break;
+      case 'puzzle.data.record':
+        container.querySelector('.puzzle__record')
+          .textContent = String(state.puzzle.data.record);
         break;
       case 'puzzle.data.bestTime':
         container.querySelector('.puzzle__best-time')
-          .innerHTML = `<span>${i18n.t('puzzle.infoSection.bestTime')}</span>${state.puzzle.data.bestTime}`;
+          .textContent = String(state.puzzle.data.bestTime);
         break;
       default:
         if (path.startsWith('puzzle.field.')) {

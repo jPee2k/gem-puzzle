@@ -1,9 +1,3 @@
-@media (max-width: 240px), (orientation: landscape) {
-  #puzzle {
-    display: none !important;
-  }
-}
-
 @media (max-width: 480px) {
   #puzzle {
     background-color: $puzzle-background;
