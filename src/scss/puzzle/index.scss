@@ -59,14 +59,15 @@
   padding: 16px;
   padding-top: 0;
   border-spacing: 2px;
-  font-size: 20px;
-  font-style: italic;
+  font-size: 16px;
   color: white;
 }
 
 
 .puzzle__info th {
   padding: 4px;
+  padding-left: 0;
+  font-size: 18px;
   background-color: $hover-color;
 }
 
@@ -81,6 +82,7 @@
 .puzzle__info td {
   padding: 4px;
   padding-left: 12px;
+  font-weight: 500;
   background-color: $hover-color;
 }
 
