@@ -3,3 +3,53 @@
     background-color: $puzzle-background;
   }
 }
+
+@media (max-width: 840px) and (orientation: landscape) {
+  #puzzle {
+    background-color: $puzzle-background;
+  }
+
+  .puzzle__wrapper {
+    display: flex;
+    flex-shrink: 0;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: center;
+
+    max-width: 580px;
+    height: auto;
+  }
+
+  .puzzle__table {
+    padding: 0;
+    padding-left: 16px;
+    padding-right: 16px;
+
+    border: none;
+    border-left: solid 1px gray;
+    border-right: solid 1px gray;
+  }
+
+  .puzzle__nav {
+    flex-direction: column;
+
+    padding: 16px;
+    padding-right: 0;
+  }
+
+  .puzzle__info {
+    padding: 16px;
+    padding-left: 0;
+
+    min-width: 140px;
+  }
+
+  .puzzle__nav button {
+    box-sizing: content-box;
+    min-width: 70px;
+  }
+
+  .puzzle__nav button:last-of-type {
+    margin-top: 2px;
+  }
+}
