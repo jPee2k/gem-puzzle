@@ -123,4 +123,7 @@
   &:hover {
     background-color: $items-color;
   }
+  &:focus {
+    background-color: $hover-color;
+  }
 }
