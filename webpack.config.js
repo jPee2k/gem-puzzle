@@ -2,6 +2,7 @@ const path = require('path');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const FaviconsWebpackPlugin = require('favicons-webpack-plugin');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
+const CopyPlugin = require('copy-webpack-plugin');
 
 module.exports = {
   mode: process.env.NODE_ENV || 'development',
@@ -53,9 +54,15 @@ module.exports = {
     new FaviconsWebpackPlugin({
       logo: path.resolve(__dirname, 'src/img/icons/favicon-512.png'),
       prefix: '',
-      publicPath: '../favicons',
-      outputPath: path.resolve(__dirname, 'dist/favicons'),
+      publicPath: '../favicon',
+      outputPath: path.resolve(__dirname, 'dist/favicon'),
       inject: (htmlPlugin) => path.basename(htmlPlugin.options.filename) === 'index.html',
+    }),
+    new CopyPlugin({
+      patterns: [
+        { from: 'src/audio/', to: '../audio/' },
+        // { from: 'src/font/', to: '../font/' },
+      ],
     }),
   ],
 };

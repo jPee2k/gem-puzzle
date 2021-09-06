@@ -6,9 +6,17 @@ import {
 const onItemClick = (state, container, evt) => {
   evt.preventDefault();
   const { data } = state.puzzle;
+
+  const successAudio = new Audio('audio/success.mp3');
+  const errorAudio = new Audio('audio/error.mp3');
+
   if (swapElements(state.puzzle.field, evt.target)) {
     data.step += 1;
+    successAudio.play();
+  } else if (evt.target.classList.contains('puzzle__item')) {
+    errorAudio.play();
   }
+
   if (isWin(state)) {
     state.puzzle.processState = 'win';
     state.puzzle.field = [
