@@ -84,13 +84,38 @@ const createNav = (state, i18n) => {
   return buttonsContainer;
 };
 
+const createInstruction = (state, i18n) => {
+  const modal = document.createElement('div');
+  const container = document.createElement('div');
+  const btn = document.createElement('button');
+
+  modal.classList.add('puzzle__modal');
+  container.classList.add('modal__container');
+  container.innerHTML = (
+    `<h2>${i18n.t('puzzle.modal.title')}</h2>
+     <p>${i18n.t('puzzle.modal.description.p1')}</p>
+     <p>${i18n.t('puzzle.modal.description.p2')}</p>`
+  );
+  btn.textContent = i18n.t('puzzle.modal.btn');
+  btn.setAttribute('type', 'button');
+  btn.addEventListener('click', () => {
+    modal.setAttribute('hidden', 'true');
+  });
+
+  container.append(btn);
+  modal.append(container);
+
+  return modal;
+};
+
 export const renderElements = (state, elements, i18n) => {
   const table = createTable(state, i18n);
   const nav = createNav(state, i18n);
+  const modal = createInstruction(state, i18n);
 
   const puzzleWrapper = document.createElement('div');
   puzzleWrapper.classList.add('puzzle__wrapper');
-  puzzleWrapper.append(table, nav);
+  puzzleWrapper.append(table, nav, modal);
 
   elements.puzzle.container.append(puzzleWrapper);
 };

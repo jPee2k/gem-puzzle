@@ -1,0 +1,51 @@
+.puzzle__nav {
+  display: flex;
+  justify-content: space-around;
+
+  padding: 16px;
+  padding-bottom: 0;
+}
+
+.puzzle__nav button {
+  display: inline-block;
+  padding: 12px;
+
+  font-size: 16px;
+  color: white;
+
+  text-align: center;
+  text-decoration: none;
+
+  border: none;
+  border-radius: 8px;
+
+  cursor: pointer;
+  background-color: $hover-color;
+
+  &:hover {
+    background-color: $items-color;
+  }
+  &:focus {
+    background-color: $hover-color;
+  }
+}
+
+// ------- MOBILE ------- //
+
+@media (max-width: 840px) and (orientation: landscape) {
+  .puzzle__nav {
+    flex-direction: column;
+
+    padding: 16px;
+    padding-right: 0;
+  }
+
+  .puzzle__nav button {
+    box-sizing: content-box;
+    min-width: 70px;
+  }
+
+  .puzzle__nav button:last-of-type {
+    margin-top: 2px;
+  }
+}

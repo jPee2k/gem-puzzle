@@ -1,0 +1,48 @@
+.puzzle__info {
+  padding: 16px;
+  padding-top: 0;
+  border-spacing: 2px;
+  font-size: 16px;
+  color: white;
+}
+
+.puzzle__info th {
+  padding: 4px;
+  padding-left: 0;
+  font-size: 18px;
+  background-color: $hover-color;
+}
+
+.puzzle__info th:first-child {
+  border-radius: 8px 0 0 0;
+}
+
+.puzzle__info th:last-child {
+  border-radius: 0 8px 0 0;
+}
+
+.puzzle__info td {
+  padding: 4px;
+  padding-left: 12px;
+  font-weight: 500;
+  background-color: $hover-color;
+}
+
+.puzzle__info tr:last-child td:first-child {
+  border-bottom-left-radius: 8px;
+}
+
+.puzzle__info tr:last-child td:last-child {
+  border-bottom-right-radius: 8px;
+}
+
+// ------- MOBILE ------- //
+
+@media (max-width: 840px) and (orientation: landscape) {
+  .puzzle__info {
+    padding: 16px;
+    padding-left: 0;
+
+    min-width: 140px;
+  }
+}
