@@ -3,12 +3,9 @@ import {
   getNewField, swapElements, isWin, pushRecord, storageAvailable,
 } from './lib.js';
 
-const onItemClick = (state, container, evt) => {
+const onItemClick = (state, container, { successAudio, errorAudio }, evt) => {
   evt.preventDefault();
   const { data } = state.puzzle;
-
-  const successAudio = new Audio('audio/success.mp3');
-  const errorAudio = new Audio('audio/error.mp3');
 
   if (swapElements(state.puzzle.field, evt.target)) {
     data.step += 1;
@@ -79,8 +76,10 @@ const app = (state, i18n, elements) => {
   ];
 
   const { container } = elements.puzzle;
+  const successAudio = new Audio('audio/success.mp3');
+  const errorAudio = new Audio('audio/error.mp3');
 
-  const onItemClickHandler = onItemClick.bind(null, state, container);
+  const onItemClickHandler = onItemClick.bind(null, state, container, { successAudio, errorAudio });
   const startButtonClickHandler = startButtonClick.bind(null, state, container, onItemClickHandler);
   const pauseButtonClickHandler = pauseButtonClick.bind(null, state, container, onItemClickHandler);
 
