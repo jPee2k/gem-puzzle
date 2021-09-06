@@ -10,9 +10,9 @@ export default {
       [13, 14, 15, null],
     ],
     isWin: false,
-    timerId: false,
+    timerId: null,
     data: {
-      steps: 0, record: 0, time: 0, bestTime: 0,
+      step: 0, stepRecord: 0, time: 0, timeRecord: 0,
     },
   },
 };

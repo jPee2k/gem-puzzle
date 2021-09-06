@@ -72,3 +72,15 @@ export const swapElements = (field, target) => {
     });
   return operationState;
 };
+
+export const storageAvailable = () => {
+  try {
+    const storage = window.localStorage;
+    const x = '__storage_test__';
+    storage.setItem(x, x);
+    storage.removeItem(x);
+    return true;
+  } catch (e) {
+    return false;
+  }
+};

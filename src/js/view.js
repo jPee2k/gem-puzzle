@@ -46,12 +46,12 @@ const createTable = (state, i18n) => {
     </thead>
     <tbody>
       <tr>
-        <td class="puzzle__counter">${i18n.t('puzzle.infoSection.counter.count', { count: state.puzzle.data.steps })}</td>
-        <td class="puzzle__record">${state.puzzle.data.record}</td>
+        <td class="puzzle__counter">${i18n.t('puzzle.infoSection.counter.count', { count: state.puzzle.data.step })}</td>
+        <td class="puzzle__step-record">${state.puzzle.data.stepRecord}</td>
       </tr>
       <tr>
         <td class="puzzle__timer">${i18n.t('puzzle.infoSection.timer', { count: state.puzzle.data.time })}</td>
-        <td class="puzzle__best-time">${state.puzzle.data.bestTime}</td>
+        <td class="puzzle__time-record">${state.puzzle.data.timeRecord}</td>
       </tr>
     </tbody>`
   );
@@ -147,21 +147,21 @@ const initView = (unwatchedState, i18n, elements) => {
       case 'puzzle.field':
         renderField(elements, value);
         break;
-      case 'puzzle.data.steps':
+      case 'puzzle.data.step':
         container.querySelector('.puzzle__counter')
-          .innerHTML = `${i18n.t('puzzle.infoSection.counter.count', { count: state.puzzle.data.steps })}`;
+          .innerHTML = `${i18n.t('puzzle.infoSection.counter.count', { count: state.puzzle.data.step })}`;
         break;
       case 'puzzle.data.time':
         container.querySelector('.puzzle__timer')
           .innerHTML = `${i18n.t('puzzle.infoSection.timer', { count: state.puzzle.data.time })}`;
         break;
-      case 'puzzle.data.record':
-        container.querySelector('.puzzle__record')
-          .textContent = String(state.puzzle.data.record);
+      case 'puzzle.data.stepRecord':
+        container.querySelector('.puzzle__step-record')
+          .textContent = String(state.puzzle.data.stepRecord);
         break;
-      case 'puzzle.data.bestTime':
-        container.querySelector('.puzzle__best-time')
-          .textContent = String(state.puzzle.data.bestTime);
+      case 'puzzle.data.timeRecord':
+        container.querySelector('.puzzle__time-record')
+          .textContent = String(state.puzzle.data.timeRecord);
         break;
       default:
         if (path.startsWith('puzzle.field.')) {

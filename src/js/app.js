@@ -1,13 +1,13 @@
 import { renderElements } from './view.js';
 import {
-  getNewField, swapElements, isWin, pushRecord,
+  getNewField, swapElements, isWin, pushRecord, storageAvailable,
 } from './lib.js';
 
 const onItemClick = (state, container, evt) => {
   evt.preventDefault();
   const { data } = state.puzzle;
   if (swapElements(state.puzzle.field, evt.target)) {
-    data.steps += 1;
+    data.step += 1;
   }
   if (isWin(state)) {
     state.puzzle.processState = 'win';
@@ -17,8 +17,14 @@ const onItemClick = (state, container, evt) => {
       [null, 'W', 'i', 'n'],
       [null, null, null, null],
     ];
-    pushRecord(state, 'puzzle.data.record', data.steps, data.record);
-    pushRecord(state, 'puzzle.data.bestTime', data.time, data.bestTime);
+    pushRecord(state, 'puzzle.data.stepRecord', data.step, data.stepRecord);
+    pushRecord(state, 'puzzle.data.timeRecord', data.time, data.timeRecord);
+
+    if (storageAvailable()) {
+      const storage = window.localStorage;
+      storage.setItem('step_record', data.stepRecord.toString());
+      storage.setItem('time_record', data.timeRecord.toString());
+    }
 
     clearTimeout(state.puzzle.timerId);
   }
@@ -28,7 +34,7 @@ const startButtonClick = (state, container, onItemClickHandler, evt) => {
   evt.preventDefault();
   state.puzzle.processState = 'play';
   state.puzzle.data.time = 0;
-  state.puzzle.data.steps = 0;
+  state.puzzle.data.step = 0;
   state.puzzle.field = getNewField();
   if (state.puzzle.timerId) {
     clearTimeout(state.puzzle.timerId);
