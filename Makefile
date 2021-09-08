@@ -1,18 +1,16 @@
-install:
-	npm i
-
-reinstall:
-	npm ci
+setup:
+	npm install
+	make build
 
 build:
 	rm -rf dist
 	NODE_ENV=production npx webpack
 
-setup:
-	npm install
-	make build
+build-dev:
+	rm -rf dist
+	NODE_ENV=development npx webpack
 
-start:
+watch:
 	npm run watch
 
 serve:
