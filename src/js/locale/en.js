@@ -24,14 +24,8 @@ export default {
       modal: {
         title: 'How to play',
         description: {
-          p1: (
-            `The goal of the game is to move the tiles around the box to arrange
-             them by numbers, preferably by making as few movements as possible.`
-          ),
-          p2: (
-            `To move a tile, click on the one next to the empty area. The game
-             ends when all the tiles are in ascending order.`
-          ),
+          p1: 'To make a move, click on the tile next to the empty area. The game ends when all the tiles are in ascending order.',
+          p2: 'The goal of the puzzle is to place the tiles in numerical order, preferably by making as few movements as possible.',
         },
         btn: 'ok',
       },

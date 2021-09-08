@@ -6,7 +6,7 @@ import app from './app.js';
 import { storageAvailable } from './lib.js';
 
 const init = async () => {
-  const defaultLanguage = 'en';
+  const defaultLanguage = 'ru';
   const i18n = i18next.createInstance();
   await i18n.init({
     lng: defaultLanguage,
