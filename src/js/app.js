@@ -9,9 +9,9 @@ const onItemClick = (state, container, audio, evt) => {
 
   if (swapElements(state.puzzle.field, evt.target)) {
     data.step += 1;
-    audio.success = new Audio('audio/success.mp3').play();
+    audio.success = new Audio('media/sounds/success.mp3').play();
   } else if (evt.target.classList.contains('puzzle__item')) {
-    audio.error = new Audio('audio/error.mp3').play();
+    audio.error = new Audio('media/sounds/error.mp3').play();
   }
 
   if (isWin(state)) {

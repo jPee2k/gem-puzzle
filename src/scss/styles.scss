@@ -3,7 +3,7 @@
 }
 
 html {
-  box-sizing: content-box;
+  box-sizing: border-box;
 }
 
 [hidden] {
@@ -26,23 +26,4 @@ html {
 img {
   max-width: 100%;
   height: auto;
-}
-
-.blinking {
-  animation: blinking 1s infinite;
-}
-
-@keyframes blinking {
-  0% {
-    background-color: $hover-color;
-  }
-  25% {
-    background-color: $hover-color;
-  }
-  75% {
-    background-color: $items-color;
-  }
-  100% {
-    background-color: $items-color;
-  }
 }

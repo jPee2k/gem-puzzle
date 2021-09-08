@@ -35,7 +35,14 @@ module.exports = {
       },
       {
         test: /\.woff2?(\?v=[0-9]\.[0-9]\.[0-9])?$/,
-        use: 'url-loader?limit=10000',
+        use: {
+          loader: 'url-loader',
+          options: {
+            limit: 10000,
+            name: '../fonts/[name].[ext]',
+            publicPath: './',
+          },
+        },
       },
       {
         test: /\.(ttf|eot|svg)(\?[\s\S]+)?$/,
@@ -52,16 +59,16 @@ module.exports = {
       template: 'index.html',
     }),
     new FaviconsWebpackPlugin({
-      logo: path.resolve(__dirname, 'src/img/icons/favicon-512.png'),
+      logo: path.resolve(__dirname, 'src/images/icons/favicon-512.png'),
       prefix: '',
-      publicPath: '../favicon',
-      outputPath: path.resolve(__dirname, 'dist/favicon'),
+      publicPath: '../favicons',
+      outputPath: path.resolve(__dirname, 'dist/favicons'),
       inject: (htmlPlugin) => path.basename(htmlPlugin.options.filename) === 'index.html',
     }),
     new CopyPlugin({
       patterns: [
-        { from: 'src/audio/', to: '../audio/' },
-        // { from: 'src/font/', to: '../font/' },
+        { from: 'src/media/sounds', to: '../media/sounds' },
+        // { from: 'src/fonts/', to: '../fonts/' },
       ],
     }),
   ],

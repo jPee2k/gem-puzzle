@@ -1,14 +1,16 @@
-@import "./font";
-@import "./info";
-@import "./table";
-@import "./nav";
-@import "./modal";
+@import "info";
+@import "table";
+@import "nav";
+@import "modal";
+@import "animations";
 
 #puzzle {
   display: flex;
   justify-content: center;
   align-items: center;
   height: 100vh;
+
+  font-family: "Jura", "Open Sans", "Roboto", sans-serif;
 }
 
 .puzzle__wrapper {

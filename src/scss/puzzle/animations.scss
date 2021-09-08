@@ -1,0 +1,18 @@
+.blinking {
+  animation: blinking 1s infinite;
+}
+
+@keyframes blinking {
+  0% {
+    background-color: $hover-color;
+  }
+  25% {
+    background-color: $hover-color;
+  }
+  75% {
+    background-color: $items-color;
+  }
+  100% {
+    background-color: $items-color;
+  }
+}
