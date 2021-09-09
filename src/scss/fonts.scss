@@ -1,1 +1,32 @@
-@import url('https://fonts.googleapis.com/css2?family=Jura:wght@400;500;700&display=swap');
+$font-path: '../fonts/jura';
+
+/* jura-regular - latin_cyrillic */
+@font-face {
+  font-family: 'Jura';
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: local(''),
+  url('#{$font-path}/jura-v16-latin_cyrillic-regular.woff2') format('woff2'),
+  url('#{$font-path}/jura-v16-latin_cyrillic-regular.woff') format('woff');
+}
+/* jura-500 - latin_cyrillic */
+@font-face {
+  font-family: 'Jura';
+  font-style: normal;
+  font-weight: 500;
+  font-display: swap;
+  src: local(''),
+  url('#{$font-path}/jura-v16-latin_cyrillic-500.woff2') format('woff2'),
+  url('#{$font-path}/jura-v16-latin_cyrillic-500.woff') format('woff');
+}
+/* jura-700 - latin_cyrillic */
+@font-face {
+  font-family: 'Jura';
+  font-style: normal;
+  font-weight: 700;
+  font-display: swap;
+  src: local(''),
+  url('#{$font-path}/jura-v16-latin_cyrillic-700.woff2') format('woff2'),
+  url('#{$font-path}/jura-v16-latin_cyrillic-700.woff') format('woff');
+}
