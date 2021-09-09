@@ -20,8 +20,7 @@
 
   position: relative;
 
-  padding: 16px;
-  max-width: 320px;
+  min-width: $mobile-sm;
 
   background-color: $puzzle-background;
   border-radius: 20px;
@@ -29,13 +28,13 @@
 
 // ------- MOBILE ------- //
 
-@media (max-width: 480px) {
+@media (max-width: $mobile) {
   #puzzle {
     background-color: $puzzle-background;
   }
 }
 
-@media (max-width: 840px) and (orientation: landscape) {
+@media (max-width: $desktop-sm) and (orientation: landscape) {
   #puzzle {
     background-color: $puzzle-background;
   }
@@ -47,7 +46,7 @@
     justify-content: space-around;
     align-items: center;
 
-    max-width: 580px;
     height: auto;
+    padding: 16px;
   }
 }

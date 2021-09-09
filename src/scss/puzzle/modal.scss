@@ -54,7 +54,7 @@
 
 // ------- MOBILE ------- //
 
-@media (max-width: 840px) and (orientation: landscape) {
+@media (max-width: $desktop-sm) and (orientation: landscape) {
   .modal__container {
     padding-left: 40px;
     padding-right: 40px;
