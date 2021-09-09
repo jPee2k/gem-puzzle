@@ -5,4 +5,5 @@
 ![lint](https://github.com/jPee2k/gem-puzzle/actions/workflows/lint.yml/badge.svg)
 
 ### 15 puzzle
-[try on Vercel](https://gem-puzzle-three.vercel.app/)
+- `stable` [try on Vercel](https://gem-puzzle-git-main-jpee2k.vercel.app/)
+- `develop` [try on Vercel](https://gem-puzzle-jpee2k.vercel.app/)
