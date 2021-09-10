@@ -29,6 +29,7 @@
     "@babel/core": "^7.14.8",
     "@babel/eslint-parser": "^7.14.7",
     "@babel/preset-env": "^7.14.8",
+    "autoprefixer": "^10.3.1",
     "babel-eslint": "^10.1.0",
     "babel-jest": "^27.0.6",
     "babel-loader": "^8.2.2",
@@ -46,14 +47,13 @@
     "jest-cli": "^27.0.6",
     "lodash": "^4.17.21",
     "mini-css-extract-plugin": "^2.2.0",
+    "postcss-loader": "^6.1.1",
     "sass": "^1.35.2",
     "sass-loader": "^12.1.0",
     "style-loader": "^3.2.1",
     "webpack": "^5.37.1",
     "webpack-cli": "^4.7.0",
-    "webpack-dev-server": "^3.11.2",
-    "postcss-loader": "^6.1.1",
-    "autoprefixer": "^10.3.1"
+    "webpack-dev-server": "^3.11.2"
   },
   "dependencies": {
     "@popperjs/core": "^2.9.2",

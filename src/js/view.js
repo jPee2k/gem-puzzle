@@ -166,6 +166,10 @@ const initView = (unwatchedState, i18n, elements) => {
 
   const state = onChange(unwatchedState, (path, value) => {
     switch (path) {
+      case 'lang':
+        document.querySelector('html')
+          .setAttribute('lang', value);
+        break;
       case 'puzzle.processState':
         stateHandler(state, i18n, elements, value);
         break;

@@ -6,7 +6,8 @@ import app from './app.js';
 import { storageAvailable } from './lib.js';
 
 const init = async () => {
-  const defaultLanguage = 'ru';
+  const languages = { 'ru-RU': 'ru' };
+  const defaultLanguage = languages[navigator.language] || 'en';
   const i18n = i18next.createInstance();
   await i18n.init({
     lng: defaultLanguage,
@@ -27,6 +28,7 @@ const init = async () => {
   }
 
   const state = initView(unwatchedState, i18n, elements);
+  state.lang = defaultLanguage;
   app(state, i18n, elements);
 };
 

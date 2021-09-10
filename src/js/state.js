@@ -1,5 +1,6 @@
 export default {
   debug: false,
+  lang: null, // en. ru
   puzzle: {
     processState: 'pause', // pause, play, win
     field: [],
