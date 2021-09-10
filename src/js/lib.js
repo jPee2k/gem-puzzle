@@ -90,3 +90,5 @@ export const playAudio = (audio) => {
   audio.currentTime = 0;
   audio.play();
 };
+
+export const getLanguage = (langs) => langs.includes(navigator.language) ? navigator.language : 'en';

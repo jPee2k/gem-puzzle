@@ -3,11 +3,12 @@ import resources from './locale/index.js';
 import unwatchedState from './state.js';
 import initView from './view.js';
 import app from './app.js';
-import { storageAvailable } from './lib.js';
+import { getLanguage, storageAvailable } from './lib.js';
+
+const langs = ['ru', 'en'];
 
 const init = async () => {
-  const languages = { 'ru-RU': 'ru' };
-  const defaultLanguage = languages[navigator.language] || 'en';
+  const defaultLanguage = getLanguage(langs);
   const i18n = i18next.createInstance();
   await i18n.init({
     lng: defaultLanguage,
