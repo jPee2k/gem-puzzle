@@ -84,3 +84,9 @@ export const storageAvailable = () => {
     return false;
   }
 };
+
+export const playAudio = (audio) => {
+  audio.pause();
+  audio.currentTime = 0;
+  audio.play();
+};

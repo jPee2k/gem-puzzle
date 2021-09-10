@@ -1,6 +1,6 @@
 import { renderElements } from './view.js';
 import {
-  getNewField, swapElements, isWin, pushRecord, storageAvailable,
+  getNewField, swapElements, isWin, pushRecord, storageAvailable, playAudio,
 } from './lib.js';
 
 const onItemClick = (state, container, audio, evt) => {
@@ -9,9 +9,9 @@ const onItemClick = (state, container, audio, evt) => {
 
   if (swapElements(state.puzzle.field, evt.target)) {
     data.step += 1;
-    audio.success.play();
+    playAudio(audio.success);
   } else if (evt.target.classList.contains('puzzle__item')) {
-    audio.error.play();
+    playAudio(audio.error);
   }
 
   if (isWin(state)) {
