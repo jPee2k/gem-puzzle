@@ -91,4 +91,7 @@ export const playAudio = (audio) => {
   audio.play();
 };
 
-export const getLanguage = (langs) => langs.includes(navigator.language) ? navigator.language : 'en';
+export const getLanguage = (langs) => {
+  const shortLangName = navigator.language.slice(0, 2);
+  return langs.includes(shortLangName) ? shortLangName : 'en';
+};
